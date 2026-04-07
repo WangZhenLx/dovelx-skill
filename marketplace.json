@@ -13,10 +13,10 @@
     {
       "name": "dovelx",
       "source": "./",
-      "description": "DoveLx 个人开发,agent团队技能包，包含需求分析、技术设计、代码审查、审查团队、全栈工作流等核心技能",
+      "description": "DoveLx 个人开发 Agent 团队技能包，包含需求分析、技术设计、代码审查、审查团队、全栈工作流等核心技能",
       "version": "1.0.0",
       "author": {
-        "name": "DoveLx"
+        "name": "WangZhen"
       },
       "homepage": "https://github.com/WangZhenLx/dovelx-skill",
       "repository": "https://github.com/WangZhenLx/dovelx-skill",
