@@ -13,7 +13,7 @@
 | 需求分析师       | `/dovelx-requirements`  | 澄清业务目标，拆解用户故事，输出结构化 PRD                |
 | 技术设计师       | `/dovelx-tech-design`   | 设计架构方案、API 契约、数据库 Schema，记录技术决策       |
 | 代码审查员       | `/dovelx-code-review`   | 多维度审查代码质量、安全性、性能与架构合规性              |
-| 专业审查团队     | —                       | 三个并行 Agent 协作，覆盖需求完整性、代码规范与安全性能   |
+| 专业审查团队     | `/dovelx-code-review`                 | 三个并行 Agent 协作，覆盖需求完整性、代码规范与安全性能   |
 | 开发团队编排     | `/dovelx-dev-team`      | 四阶段流水线：需求 → 技术设计 → 开发实现 → 代码审查       |
 | 端到端全栈工作流 | `/dovelx-all-stack`     | 九阶段全流程，内置挑战审查与逐阶用户授权门控机制          |
 
@@ -95,6 +95,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 /dovelx-tech-design    ← 只做技术设计
 /dovelx-code-review    ← 只做代码审查
 /dovelx-dev-team       ← 四阶段开发编排
+/dovelx-review-team    ← 多维度多agent并行审查
 ```
 
 所有输出文档统一使用中文撰写。
