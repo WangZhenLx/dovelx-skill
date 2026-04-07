@@ -31,6 +31,46 @@
 
 ---
 
+## 安装前提
+
+本技能包的**审查团队**与**开发团队编排**功能会派发多个并行 Agent，需要确保以下环境变量已正确配置：
+
+本技能包的**审查团队**与**开发团队编排**功能依赖 Claude Code 的多 Agent 并行能力，安装前需完成以下两项配置。
+
+### 1. 启用 Agent Team 功能
+
+在 `~/.claude/settings.json` 的 `env` 字段中添加：
+
+```json
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
+```
+
+或在终端中临时启用：
+
+```bash
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+```
+
+### 2. 配置 Claude API 密钥
+
+```bash
+export ANTHROPIC_API_KEY="sk-ant-..."
+```
+
+> **Windows 用户** 使用 PowerShell：
+> ```powershell
+> $env:CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1"
+> $env:ANTHROPIC_API_KEY = "sk-ant-..."
+> ```
+
+**未完成以上配置时，并行 Agent 功能将无法启动。** 单独调用 `/dovelx-requirements`、`/dovelx-tech-design`、`/dovelx-code-review` 不受影响。
+
+---
+
 ## 安装
 
 在 Claude Code 中执行：
