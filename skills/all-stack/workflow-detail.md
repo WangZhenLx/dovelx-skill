@@ -53,10 +53,10 @@
 ### 代码库探索
 
 使用以下工具快速了解影响范围：
-- `SemanticSearch` — 查找相关业务逻辑
-- `Grep` — 精确查找类名、方法名、表名
-- `Glob` — 查找相关文件结构
-- 读取 `standards/architecture.md` 和 `standards/coding.md` 了解项目规范
+- `Grep` — 精确查找类名、方法名、表名、关键字
+- `Glob` — 查找相关文件结构和模式
+- `Agent (Explore)` — 语义级别的代码库探索
+- 读取项目现有核心模块了解架构约定（如有 `CLAUDE.md` 优先读取）
 
 ## Phase 4: Challenge Review — 详细指引
 
@@ -146,15 +146,14 @@
 
 ### 自测检查清单
 
-- [ ] 所有新增/修改的文件无 linter 错误
-- [ ] Entity 继承了正确的基类
-- [ ] Controller 返回 `Result<T>`
-- [ ] Service 层有适当的异常处理
-- [ ] Repository 方法命名正确
-- [ ] Converter/Assembler 忽略了审计字段
-- [ ] API 路径符合 RESTful 规范
-- [ ] 必要的 `@Query` 注解已添加
-- [ ] 安全注解（`@AnonymousAccess` 等）正确使用
+- [ ] 所有新增/修改的文件无 linter 错误（运行项目 lint 命令验证）
+- [ ] 函数/方法职责单一，长度 < 50 行
+- [ ] 错误处理完整，不吞异常
+- [ ] 所有用户输入已校验
+- [ ] 无硬编码密钥或魔法值
+- [ ] API 路径符合项目已有规范（REST 或 RPC）
+- [ ] 数据库查询使用参数化，无 SQL 注入风险
+- [ ] 新增接口有对应测试覆盖（目标 80%+）
 
 ### 需求回归验证格式
 

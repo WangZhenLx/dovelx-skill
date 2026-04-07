@@ -55,20 +55,11 @@ origin: dovelx
 
 ## PRD 文档输出结构
 
-生成的 PRD 保存到 `.claude/doc/<功能名>/design-<日期>-v1.md`：
+生成的 PRD 保存到 `.claude/doc/<功能名>/design-<日期>-v1.md`。
 
-```markdown
-# 功能名称
+完整文档结构参见模板：[prd-template.md](prd-template.md)
 
-## 背景与目标
-## 用户故事
-## 功能范围（In Scope / Out of Scope）
-## 数据流 / 业务流程
-## 验收标准
-## 非功能需求（性能、安全、兼容性）
-## 依赖与风险
-## 优先级与里程碑（P0 MVP / P1 后续）
-```
+主要章节：背景与目标、目标用户、用户故事（≥3条，含 Given/When/Then）、功能范围（In/Out of Scope）、数据流/业务流程、非功能需求、依赖与风险、优先级与里程碑。
 
 ## 工作流
 

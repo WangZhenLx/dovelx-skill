@@ -1,6 +1,6 @@
 # design.md 模板
 
-生成 design.md 时使用此模板。路径：`.claude/doc/features/[feature-name]/design.md`
+生成设计文档时使用此模板。路径：`.claude/doc/<功能名>/design-<日期>-v1.md`
 
 ```markdown
 # [Feature Name] 设计文档
@@ -96,4 +96,10 @@ CREATE TABLE xxx (
 | 决策 | 备选方案 | 选择理由 |
 |------|----------|----------|
 | ... | ... | ... |
+
+## 授权记录
+
+| 版本 | 日期 | 状态 | 用户反馈 |
+|------|------|------|---------|
+| v1 | YYYY-MM-DD | ⏳ 待审阅 | |
 ```
