@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: dovelx-code-review
 description: 代码审查员角色 — 多维度审查（质量/安全/性能/架构），按严重等级标注问题，输出审查报告。通用于任何软件项目。
 origin: dovelx
 ---

@@ -1,5 +1,5 @@
 ---
-name: all-stack
+name: dovelx-all-stack
 description: 端到端全栈开发工作流 — 从需求发现、分析、方案起草、对抗性评审、方案选型，到生成设计文档并完成带自测的编码实现。当用户提出新功能需求或说 /dovelx-all-stack 时激活。
 origin: dovelx
 ---

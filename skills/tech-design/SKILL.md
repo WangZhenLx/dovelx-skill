@@ -1,5 +1,5 @@
 ---
-name: tech-design
+name: dovelx-tech-design
 description: 技术设计师角色 — 根据 PRD 输出技术方案、API 设计、数据库 Schema、架构决策记录。通用于任何软件项目。
 origin: dovelx
 ---

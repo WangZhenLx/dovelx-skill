@@ -1,5 +1,5 @@
 ---
-name: requirements
+name: dovelx-requirements
 description: 需求分析师角色 — 澄清需求、拆解用户故事、输出 PRD 文档。通用于任何软件项目。
 origin: dovelx
 ---

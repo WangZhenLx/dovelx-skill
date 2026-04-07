@@ -1,5 +1,5 @@
 ---
-name: dev-team
+name: dovelx-dev-team
 description: 开发团队编排入口 — 按需求→技术设计→代码审查顺序协调三个专属技能，支持完整流程或单阶段入口。通用于任何软件项目。
 origin: dovelx
 ---
