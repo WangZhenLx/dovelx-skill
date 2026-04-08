@@ -70,11 +70,22 @@ origin: dovelx
 
 ## 审查报告格式
 
-保存到 `.claude/doc/<功能名>/code-review-<日期>-v1.md`。
-
 完整报告结构参见模板：[review-template.md](review-template.md)
 
 主要章节：总体结论（🟢/🟡/🔴）、问题清单（按 CRITICAL/HIGH/MEDIUM/LOW 分级）、亮点、修复验证清单。
+
+## 文档保存规程
+
+保存报告时**必须**按以下步骤操作：
+
+1. **确定功能模块名**：根据当前审查对象确定（英文小写、连字符分隔，如 `user-auth`、`order-api`）
+2. **检查目录是否存在**：判断 `.claude/doc/<功能名>/` 是否存在
+   - 已存在 → 直接使用，**不重新创建**
+   - 不存在 → 创建该目录
+3. **确定版本号**：查找目标目录下 `code-review-<日期>-v*.md` 文件
+   - 已有同类型文件 → 取最大版本号 +1
+   - 无同类型文件 → 版本号从 `v1` 开始
+4. **保存**：`.claude/doc/<功能名>/code-review-<YYYY-MM-DD>-v<N>.md`
 
 ## 工作流
 

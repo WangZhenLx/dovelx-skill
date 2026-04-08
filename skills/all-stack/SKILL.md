@@ -30,15 +30,25 @@ Phase 9: Verification           →  phase9-verification-<日期>.md
 
 | 阶段 | 文件名 | 模板 | 说明 |
 |------|--------|------|------|
-| Phase 1 | `phase1-brief-<日期>.md` | [phase1-brief-template.md](phase1-brief-template.md) | 需求简报 |
-| Phase 2 | `phase2-analysis-<日期>.md` | [phase2-analysis-template.md](phase2-analysis-template.md) | 需求分析 |
-| Phase 3 | `phase3-draft-plan-<日期>.md` | [phase3-draft-plan-template.md](phase3-draft-plan-template.md) | 方案草稿 |
-| Phase 4 | `phase4-challenge-review-<日期>.md` | [phase4-challenge-review-template.md](phase4-challenge-review-template.md) | 挑战审查报告 |
-| Phase 5 | `phase5-solution-<日期>.md` | [phase5-solution-template.md](phase5-solution-template.md) | 方案选型记录 |
-| Phase 6 | `design-<日期>-v1.md` | [design-template.md](design-template.md) | 设计文档 |
-| Phase 7 | `phase7-design-review-<日期>.md` | [phase7-design-review-template.md](phase7-design-review-template.md) | 设计审查报告 |
-| Phase 8 | `phase8-tasks-<日期>.md` | [phase8-tasks-template.md](phase8-tasks-template.md) | 实现任务清单 |
-| Phase 9 | `phase9-verification-<日期>.md` | [phase9-verification-template.md](phase9-verification-template.md) | 验证报告 |
+| Phase 1 | `phase1-brief-<日期>-v<N>.md` | [phase1-brief-template.md](phase1-brief-template.md) | 需求简报 |
+| Phase 2 | `phase2-analysis-<日期>-v<N>.md` | [phase2-analysis-template.md](phase2-analysis-template.md) | 需求分析 |
+| Phase 3 | `phase3-draft-plan-<日期>-v<N>.md` | [phase3-draft-plan-template.md](phase3-draft-plan-template.md) | 方案草稿 |
+| Phase 4 | `phase4-challenge-review-<日期>-v<N>.md` | [phase4-challenge-review-template.md](phase4-challenge-review-template.md) | 挑战审查报告 |
+| Phase 5 | `phase5-solution-<日期>-v<N>.md` | [phase5-solution-template.md](phase5-solution-template.md) | 方案选型记录 |
+| Phase 6 | `design-<日期>-v<N>.md` | [design-template.md](design-template.md) | 设计文档 |
+| Phase 7 | `phase7-design-review-<日期>-v<N>.md` | [phase7-design-review-template.md](phase7-design-review-template.md) | 设计审查报告 |
+| Phase 8 | `phase8-tasks-<日期>-v<N>.md` | [phase8-tasks-template.md](phase8-tasks-template.md) | 实现任务清单 |
+| Phase 9 | `phase9-verification-<日期>-v<N>.md` | [phase9-verification-template.md](phase9-verification-template.md) | 验证报告 |
+
+### 文档保存规程（每个 Phase 输出前必须执行）
+
+1. **检查目录**：判断 `.claude/doc/<功能名>/` 是否存在
+   - 已存在 → 直接使用，**不重新创建**
+   - 不存在 → 创建目录
+2. **确定版本号**：查找目标目录下同前缀同日期文件（如 `phase1-brief-<日期>-v*.md`）
+   - 已有同类型文件 → 取最大版本号 +1
+   - 无同类型文件 → 从 `v1` 开始
+3. **保存**：`.claude/doc/<功能名>/<phase前缀>-<YYYY-MM-DD>-v<N>.md`
 
 ---
 

@@ -143,9 +143,24 @@ origin: dovelx
 
 ---
 
+## 文档保存规程
+
+保存所有测试文档时**必须**按以下步骤操作：
+
+1. **确定功能模块名**：根据当前测试对象确定（英文小写、连字符分隔，如 `user-auth`、`order-api`）
+2. **检查目录是否存在**：判断 `.claude/doc/<功能名>/` 是否存在
+   - 已存在 → 直接使用，**不重新创建**
+   - 不存在 → 创建该目录
+3. **确定各文档版本号**：分别查找对应类型文件
+   - `test-cases-<日期>-v*.md`：已有则版本 +1，否则从 `v1` 开始
+   - `test-report-<日期>-v*.md`：已有则版本 +1，否则从 `v1` 开始
+4. **保存路径格式**：`.claude/doc/<功能名>/<文档类型>-<YYYY-MM-DD>-v<N>.md`
+
+---
+
 ## 测试用例模板
 
-保存到 `.claude/doc/<功能名>/test-cases-<日期>-v1.md`。
+保存到 `.claude/doc/<功能名>/test-cases-<YYYY-MM-DD>-v<N>.md`（版本号按规程确定）。
 
 完整测试用例模板参见：[test-case-template.md](test-case-template.md)
 
@@ -170,7 +185,7 @@ origin: dovelx
 
 ## 测试报告模板
 
-保存到 `.claude/doc/<功能名>/test-report-<日期>-v1.md`。
+保存到 `.claude/doc/<功能名>/test-report-<YYYY-MM-DD>-v<N>.md`（版本号按规程确定）。
 
 完整测试报告模板参见：[test-report-template.md](test-report-template.md)
 
