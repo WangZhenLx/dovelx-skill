@@ -10,6 +10,7 @@
   "repository": "https://github.com/WangZhenLx/dovelx-skill",
   "license": "MIT",
   "skills": "../skills",
+  "agents": "../agents",
   "minVersion": "1.0.0",
   "keywords": ["claude-code", "skills", "code-review", "tech-design", "requirements", "full-stack", "workflow"]
 }

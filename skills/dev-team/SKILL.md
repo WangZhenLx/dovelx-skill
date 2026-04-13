@@ -30,25 +30,33 @@ dovelx-requirements  →  dovelx-tech-design  →  开发实现  →  dovelx-cod
 ## 四个阶段
 
 ### 阶段 1：需求分析
-使用 `dovelx-requirements` 技能：
-- 与用户交互澄清需求
-- 输出 PRD 到 `.claude/doc/<功能名>/design-<日期>-v1.md`
-- **门控**：用户确认 PRD 后才进入下一阶段
+
+**执行方式**：派发 `agents/requirements-analyst.md` 子 Agent  
+**产出**：PRD → `.claude/doc/<功能名>/prd-<日期>-v1.md`  
+**门控**：用户确认 PRD 后才进入下一阶段
+
+> 也可直接调用 `/dovelx-requirements` 由用户主导交互式需求分析。
 
 ### 阶段 2：技术设计
-使用 `dovelx-tech-design` 技能：
-- 读取 PRD，了解当前项目技术栈
-- 输出技术设计文档到 `.claude/doc/<功能名>/design-<日期>-v2.md`
-- **门控**：用户确认技术方案后才开始实现
+
+**执行方式**：派发 `agents/tech-designer.md` 子 Agent，输入为阶段 1 的 PRD 路径  
+**产出**：技术设计文档 → `.claude/doc/<功能名>/design-<日期>-v<N>.md`  
+**门控**：用户确认技术方案后才开始实现
+
+> 也可直接调用 `/dovelx-tech-design`。
 
 ### 阶段 3：开发实现
-按技术设计文档逐项实现，遵循项目既有规范，同步编写测试。
+
+**执行方式**：主 Claude 实例按技术设计文档逐项实现  
+按设计文档的模块划分顺序编码，遵循项目既有规范，同步编写测试。
 
 ### 阶段 4：代码审查
-使用 `dovelx-code-review` 技能：
-- 获取变更文件，执行完整审查清单
-- 输出审查报告到 `.claude/doc/<功能名>/code-review-<日期>-v1.md`
-- **门控**：CRITICAL 问题全部修复后才能合并
+
+**执行方式**：派发 `agents/code-reviewer.md` 子 Agent，输入为变更文件列表  
+**产出**：审查报告 → `.claude/doc/<功能名>/code-review-<日期>-v1.md`  
+**门控**：CRITICAL 问题全部修复后才能合并
+
+> 也可直接调用 `/dovelx-code-review`。
 
 ## 单阶段快速入口
 

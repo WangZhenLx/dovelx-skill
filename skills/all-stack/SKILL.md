@@ -105,23 +105,17 @@ Create an initial implementation plan:
 
 ## Phase 4: Challenge Review
 
-Launch a review agent to stress-test the plan. Use the Agent tool with `subagent_type="general-purpose"`.
+派发 `agents/challenge-reviewer.md` 子 Agent 对方案草稿进行压力测试。
 
-**The reviewer must evaluate:**
+**Agent 输入**：Phase 3 方案草稿文档路径 + 项目上下文  
+**Agent 职责**（详见 `agents/challenge-reviewer.md`）：
+1. **完整性** — 方案是否覆盖所有验收标准？
+2. **可行性** — 是否存在技术障碍或不切实际的假设？
+3. **一致性** — 是否与现有架构和模式一致？
+4. **边界场景** — 哪些边界条件缺失？
+5. **替代方案** — 是否存在更简单或健壮的实现方式？
 
-1. **Completeness** — Does the plan cover all acceptance criteria?
-2. **Feasibility** — Are there technical blockers or unrealistic assumptions?
-3. **Consistency** — Does it align with existing architecture and patterns?
-4. **Edge cases** — What boundary conditions are missing?
-5. **Alternatives** — Are there simpler or more robust approaches?
-
-**After review, present to the user:**
-
-- Review findings (issues, risks, gaps)
-- 2-3 alternative approaches (if applicable), each with pros/cons
-- A recommendation with rationale
-
-Use AskQuestion to let the user select their preferred approach.
+**收到 Agent 结果后，向用户展示**：审查发现 + 2-3 个备选方案对比 + 推荐意见。
 
 **Output**: 保存挑战审查报告至 `.claude/doc/<功能名>/phase4-challenge-review-<日期>.md`，参见 [phase4-challenge-review-template.md](phase4-challenge-review-template.md)。含用户选择结果。
 
@@ -133,14 +127,14 @@ Use AskQuestion to let the user select their preferred approach.
 
 Based on user's choice:
 
-1. Refine the selected approach with review feedback incorporated
-2. Launch another review agent (Agent tool, `subagent_type="general-purpose"`) to validate:
-   - Feasibility of selected approach
-   - Boundary conditions and error handling strategy
-   - API contract and data model implications
-   - Performance and security considerations
-3. Present final validation results to user
-4. If issues found, iterate until resolved
+1. 将用户选定的方案与 Phase 4 审查反馈融合，细化方案细节
+2. 再次派发 `agents/challenge-reviewer.md` 子 Agent 验证最终方案：
+   - 选定方案的可行性
+   - 边界条件和错误处理策略
+   - API 契约和数据模型影响
+   - 性能和安全考量
+3. 向用户展示最终验证结果
+4. 若发现问题，迭代直至解决
 
 **Output**: 保存方案选型记录至 `.claude/doc/<功能名>/phase5-solution-<日期>.md`，参见 [phase5-solution-template.md](phase5-solution-template.md)。记录选型理由、迭代过程和最终确认。
 
@@ -171,19 +165,15 @@ Read the template from [design-template.md](design-template.md) for the full str
 
 ## Phase 7: Design Review
 
-Launch a final review agent on the generated design document:
+派发 `agents/design-reviewer.md` 子 Agent 对设计文档进行完整性审查。
 
-```
-Prompt: "Review this design document for completeness, technical accuracy,
-architectural consistency, and implementation feasibility. Flag any gaps,
-risks, or improvements needed."
-```
+**Agent 输入**：Phase 6 设计文档路径  
+**Agent 职责**（详见 `agents/design-reviewer.md`）：完整性、技术准确性、架构一致性、实现可行性
 
 **Review loop:**
 
-1. If issues found → fix design document → re-review（最多 3 轮）
-2. Repeat until review passes
-3. Present final design summary to user for approval
+1. Agent 发现问题 → 修复设计文档 → 重新派发 Agent 审查（最多 3 轮）
+2. 审查通过 → 向用户展示设计文档摘要并请求最终授权
 
 **Output**: 保存设计审查报告至 `.claude/doc/<功能名>/phase7-design-review-<日期>.md`，参见 [phase7-design-review-template.md](phase7-design-review-template.md)。记录每轮审查结果和修复记录。
 
@@ -216,10 +206,10 @@ After user approves the design:
 
 Final verification before declaring completion:
 
-1. **Code review**: Launch code-reviewer agent on all changed files
-2. **Requirement regression**: Cross-check each acceptance criterion against implementation
-3. **Standards compliance**: Verify against project coding conventions and architecture patterns
-4. Present verification report to user
+1. **代码审查**：派发 `agents/code-reviewer.md` 子 Agent 对所有变更文件执行审查
+2. **需求回归**：逐一核对 PRD 验收标准与实现的对应关系
+3. **规范合规**：确认代码符合项目编码规范和架构模式
+4. 向用户展示验证报告
 
 **Output**: 保存验证报告至 `.claude/doc/<功能名>/phase9-verification-<日期>.md`，参见 [phase9-verification-template.md](phase9-verification-template.md)。
 
