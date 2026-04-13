@@ -4,6 +4,13 @@
 
 ---
 
+## [1.0.9] - 2026-04-13
+
+### 修复
+- `plugin.json`：移除 `agents` 字段 — 该字段不被插件 schema 接受，导致安装时 `agents: Invalid input` 验证错误。Agents 由技能在运行时通过 Agent 工具直接引用，无需在 manifest 中声明
+
+---
+
 ## [1.0.8] - 2026-04-13
 
 ### 修复
