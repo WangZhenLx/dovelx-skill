@@ -4,6 +4,31 @@
 
 ---
 
+## [1.0.7] - 2026-04-13
+
+### 新增
+- `agents/` 目录：新增 8 个专属执行 Agent，将编排逻辑与执行细节分离
+  - `spec-reviewer` — 需求与设计审查（由 `review-team` 派发）
+  - `code-standards-reviewer` — 代码规范审查（由 `review-team` 派发）
+  - `security-performance-reviewer` — 安全与性能审查（由 `review-team` 派发）
+  - `requirements-analyst` — 需求分析执行（由 `dev-team` 派发）
+  - `tech-designer` — 技术设计执行（由 `dev-team` 派发）
+  - `code-reviewer` — 代码审查执行（由 `dev-team` / `all-stack` 复用）
+  - `challenge-reviewer` — 挑战性评审（由 `all-stack` Phase 4/5 派发）
+  - `design-reviewer` — 设计文档审查（由 `all-stack` Phase 7 派发）
+- `plugin.json`：新增 `agents` 字段声明 `agents/` 目录
+- 所有技能新增 `examples/input.md` + `examples/output.md` 示例文件
+- `CHANGELOG.md`、`CONTRIBUTING.md`：完善开源文档
+- `.github/workflows/`：新增 CI 验证（格式校验 + 版本一致性）和自动发版 workflow
+- `scripts/validate-skills.sh`：扩展支持同时验证 `skills/` 和 `agents/` 目录
+
+### 改进
+- `review-team` 技能：移除内联 Agent 审查清单，改为引用 `agents/` 配置文件，技能更聚焦于编排流程
+- `dev-team` 技能：各阶段明确标注对应 Agent 配置文件路径
+- `all-stack` 技能：Phase 4/5/7/9 改为引用专属 Agent，减少重复定义
+
+---
+
 ## [1.0.6] - 2026-04-13
 
 ### 修复
